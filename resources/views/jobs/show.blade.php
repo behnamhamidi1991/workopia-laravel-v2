@@ -84,12 +84,12 @@
               alt="Ad"
               class="w-full rounded-lg mb-4 m-auto"
             />
-            <h4 class="text-lg font-bold">Algorix</h4>
+            <h4 class="text-lg font-bold">{{$job->company_name}}</h4>
             <p class="text-gray-700 text-lg my-3">
-              We are a leading software development company in New York.
+              {{$job->company_description}}
             </p>
             <a href="https://sparkle.test" target="_blank" class="text-blue-500"
-              >Visit Website</a
+              >{{$job->company_website}}</a
             >
           
             <a
