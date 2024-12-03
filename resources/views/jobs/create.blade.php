@@ -2,6 +2,7 @@
     <div class="bg-white mx-auto p-8 rounded-lg shadow-md w-full md:max-w-3xl">
         <h2 class="text-4xl text-center font-bold mb-4">Create Job Listing</h2>
         <form method="POST" action="/jobs" enctype="multipart/form-data">
+            @csrf
           <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
             Job Info
           </h2>
@@ -12,9 +13,13 @@
               id="title"
               type="text"
               name="title"
-              class="w-full px-4 py-2 border rounded focus:outline-none"
+              class="w-full px-4 py-2 border rounded focus:outline-none @error('title') border-red-500 @enderror"
               placeholder="Software Engineer"
+              value="{{old('title')}}"
             />
+            @error('title')
+                <div class="text-red-500 text-sm mt-1">{{$message}}</div>
+            @enderror
           </div>
     
           <div class="mb-4">
@@ -26,9 +31,12 @@
               rows="7"
               id="description"
               name="description"
-              class="w-full px-4 py-2 border rounded focus:outline-none"
+              class="w-full px-4 py-2 border rounded focus:outline-none @error('title') border-red-500 @enderror"
               placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team. In this role, you will be responsible for designing, developing, and maintaining high-quality software solutions that meet our clients' needs. You will work closely with cross-functional teams to deliver robust applications and improve existing systems."
-            ></textarea>
+            >{{old('description')}}</textarea>
+        @error('description')
+        <div class="text-red-500 text-sm mt-1">{{$message}}</div>
+        @enderror
           </div>
     
           <div class="mb-4">
@@ -82,16 +90,19 @@
             <select
               id="job_type"
               name="job_type"
-              class="w-full px-4 py-2 border rounded focus:outline-none"
+              class="w-full px-4 py-2 border rounded focus:outline-none @error('job_type') border-red-500 @enderror"
             >
-              <option value="Full-Time" selected>Full-Time</option>
-              <option value="Part-Time">Part-Time</option>
-              <option value="Contract">Contract</option>
-              <option value="Temporary">Temporary</option>
-              <option value="Internship">Internship</option>
-              <option value="Volunteer">Volunteer</option>
-              <option value="On-Call">On-Call</option>
+              <option value="Full-Time" {{old('job_type') == 'Full-Time' ? 'selected' : ''}}>Full-Time</option>
+              <option value="Part-Time" {{old('job_type') == 'Part-Time' ? 'selected' : ''}}>Part-Time</option>
+              <option value="Contract" {{old('job_type') == 'Contract' ? 'selected' : ''}}>Contract</option>
+              <option value="Temporary" {{old('job_type') == 'Temporary' ? 'selected' : ''}}>Temporary</option>
+              <option value="Internship" {{old('job_type') == 'Internship' ? 'selected' : ''}}>Internship</option>
+              <option value="Volunteer" {{old('job_type') == 'Colunteer' ? 'selected' : ''}}>Volunteer</option>
+              <option value="On-Call" {{old('job_type') == 'On-Call' ? 'selected' : ''}}>On-Call</option>
             </select>
+            @error('job_type')
+                <p class="text-red-500 text-sm mt-1">{{$message}}</p>
+            @enderror
           </div>
     
           <div class="mb-4">
@@ -226,10 +237,13 @@
               id="company_logo"
               type="file"
               name="company_logo"
-              class="w-full px-4 py-2 border rounded focus:outline-none"
+              class="w-full px-4 py-2 border rounded focus:outline-none @error('company_logo') border-red-500 @enderror"
             />
+            @error('company_logo')
+            <p class="text-red-500 text-sm mt-1">{{$message}}</p>
+            @enderror
           </div>
-    
+          
           <button
             type="submit"
             class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 my-3 rounded focus:outline-none"
