@@ -7,7 +7,7 @@
             Job Info
           </h2>
     
-         <x-inputs.text id="title" name="title" label="Job Title" placeholder="Software Engineer" />
+         <x-inputs.text id="title" name="title" label="Job Title" placeholder="Software Engineer" value="title" />
     
           <div class="mb-4">
             <label class="block text-gray-700" for="description"
@@ -26,7 +26,7 @@
         @enderror
           </div>
     
-          <x-inputs.text id="salary" name="salary" label="Salary" type="number" placeholder="90000" />
+          <x-inputs.text id="salary" name="salary" label="Salary" type="number" placeholder="90000" value="salary" />
     
           <div class="mb-4">
             <label class="block text-gray-700" for="requirements"
@@ -50,7 +50,7 @@
             ></textarea>
           </div>
     
-          <x-inputs.text id="tags" name="tags" label="Tags (comma-separated)" type="text" placeholder="development,coding,java,python" />
+          <x-inputs.text id="tags" name="tags" label="Tags (comma-separated)" type="text" placeholder="development,coding,java,python" value="tags" />
     
           <div class="mb-4">
             <label class="block text-gray-700" for="job_type">Job Type</label>
@@ -82,22 +82,25 @@
               <option value="false">No</option>
               <option value="true">Yes</option>
             </select>
+            @error('remote')
+            <p class="text-red-500 text-sm mt-1">{{$message}}</p>
+            @enderror
           </div>
 
-          <x-inputs.text id="address" name="address" label="Address" type="text" placeholder="123 Main St" />
+          <x-inputs.text id="address" name="address" label="Address" type="text" placeholder="123 Main St" value="address" />
     
-          <x-inputs.text id="city" name="city" label="City" type="text" placeholder="Albany" />
+          <x-inputs.text id="city" name="city" label="City" type="text" placeholder="Albany" value="city"  />
     
-          <x-inputs.text id="state" name="state" label="State" type="text" placeholder="NY" />
+          <x-inputs.text id="state" name="state" label="State" type="text" placeholder="NY" value="state"  />
 
-          <x-inputs.text id="zipcode" name="zipcode" label="Zipcode" type="text" placeholder="12201" />
+          <x-inputs.text id="zipcode" name="zipcode" label="Zipcode" type="text" placeholder="12201" value="zipcode" />
           
     
           <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
             Company Info
           </h2>
 
-          <x-inputs.text id="company_name" name="company_name" label="Company Name" type="text" placeholder="Enter company name" />
+          <x-inputs.text id="company_name" name="company_name" label="Company Name" type="text" placeholder="Enter company name" value="company_name"  />
     
           <div class="mb-4">
             <label class="block text-gray-700" for="company_description"
@@ -109,13 +112,16 @@
               class="w-full px-4 py-2 border rounded focus:outline-none"
               placeholder="Company Description"
             ></textarea>
+            @error('company_description')
+            <p class="text-red-500 text-sm mt-1">{{$message}}</p>
+            @enderror
           </div>
     
-          <x-inputs.text id="company_website" name="company_website" label="Company Website" type="text" placeholder="Company Website" />
+          <x-inputs.text id="company_website" name="company_website" label="Company Website" type="url" placeholder="Company Website" value="company_website"  />
 
-          <x-inputs.text id="contact_phone" name="contact_phone" label="Company Phone" type="text" placeholder="Enter phone" />
+          <x-inputs.text id="contact_phone" name="contact_phone" label="Company Phone" type="text" placeholder="Enter phone" value="contact_phone" />
     
-          <x-inputs.text id="contact_email" name="contact_email" label="Company Email" type="email" placeholder="Enter Email" />
+          <x-inputs.text id="contact_email" name="contact_email" label="Company Email" type="email" placeholder="Enter Email" value="contact_email"  />
     
           <div class="mb-4">
             <label class="block text-gray-700" for="company_logo"
