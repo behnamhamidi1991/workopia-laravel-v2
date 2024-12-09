@@ -9,46 +9,16 @@
     
          <x-inputs.text id="title" name="title" label="Job Title" placeholder="Software Engineer" value="title" />
     
-          <div class="mb-4">
-            <label class="block text-gray-700" for="description"
-              >Job Description</label
-            >
-            <textarea
-              cols="30"
-              rows="7"
-              id="description"
-              name="description"
-              class="w-full px-4 py-2 border rounded focus:outline-none @error('title') border-red-500 @enderror"
-              placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team. In this role, you will be responsible for designing, developing, and maintaining high-quality software solutions that meet our clients' needs. You will work closely with cross-functional teams to deliver robust applications and improve existing systems."
-            >{{old('description')}}</textarea>
-        @error('description')
-        <div class="text-red-500 text-sm mt-1">{{$message}}</div>
-        @enderror
-          </div>
+         <x-inputs.text-area id="description" name="description" label=" Description" placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team. In this role, you will be responsible for designing, developing, and maintaining high-quality software solutions that meet our clients' needs. You will work closely with cross-functional teams to deliver robust applications and improve existing systems." />
     
           <x-inputs.text id="salary" name="salary" label="Salary" type="number" placeholder="90000" value="salary" />
     
-          <div class="mb-4">
-            <label class="block text-gray-700" for="requirements"
-              >Requirements</label
-            >
-            <textarea
-              id="requirements"
-              name="requirements"
-              class="w-full px-4 py-2 border rounded focus:outline-none"
-              placeholder="Bachelor's degree in Computer Science"
-            ></textarea>
-          </div>
+             
+         <x-inputs.text-area id="requirements" name="requirements" label=" Requirements" placeholder="Bachelor's degree in Computer Science" rows="5" />
+
+         <x-inputs.text-area id="benefits" name="benefits" label="Benefits" placeholder="Health insurance, 401k, paid time off" rows="5"  />
     
-          <div class="mb-4">
-            <label class="block text-gray-700" for="benefits">Benefits</label>
-            <textarea
-              id="benefits"
-              name="benefits"
-              class="w-full px-4 py-2 border rounded focus:outline-none"
-              placeholder="Health insurance, 401k, paid time off"
-            ></textarea>
-          </div>
+   
     
           <x-inputs.text id="tags" name="tags" label="Tags (comma-separated)" type="text" placeholder="development,coding,java,python" value="tags" />
     
@@ -101,21 +71,9 @@
           </h2>
 
           <x-inputs.text id="company_name" name="company_name" label="Company Name" type="text" placeholder="Enter company name" value="company_name"  />
+
+          <x-inputs.text-area id="company_description" name="company_description" label="Company Description" rows="3"  />
     
-          <div class="mb-4">
-            <label class="block text-gray-700" for="company_description"
-              >Company Description</label
-            >
-            <textarea
-              id="company_description"
-              name="company_description"
-              class="w-full px-4 py-2 border rounded focus:outline-none"
-              placeholder="Company Description"
-            ></textarea>
-            @error('company_description')
-            <p class="text-red-500 text-sm mt-1">{{$message}}</p>
-            @enderror
-          </div>
     
           <x-inputs.text id="company_website" name="company_website" label="Company Website" type="url" placeholder="Company Website" value="company_website"  />
 
